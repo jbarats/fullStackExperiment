@@ -15,4 +15,11 @@ app.get('/status', (req,res) => {
   })
 })
 
+//res appears to be a return address. Req will have the content of the sent data
+app.post('/register', (req, res) => {
+  res.send({
+    message: `Hello ${req.body.email} user was registered! Have fun!`
+  })
+})
+
 app.listen(process.env.PORT || 8081)
