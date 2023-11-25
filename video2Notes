@@ -1,0 +1,71 @@
+SQLlite - works well for relational data
+  npm install --save sqlite
+
+./models - will hold the sequelize object here
+
+will use .sync() to wait on the db to continue server operations
+
+src/config/config.js - to hold things like port number (we're refactoring what is already written)
+
+better to define routes in a seperate file
+  src/routes.js
+
+/models
+  /models/user.js
+
+  sequelize.define('User',
+    {email: {type: DataTypes.STRING
+             unique: true},
+     password: DataTypes.STRING}) new model (first parameter - name)
+  
+
+reminder to self that any required folder must have a:
+models/index.js  
+
+setting up the sequelize
+
+const sequelize = new Sequelize(
+  config.db.database,
+  .
+  .
+  .
+)  so we store all these shenanigans within config
+
+the tutorial method will likely not work, so we will have to goand explore the Sequelize docs to get to the bottom of it
+
+auto build all the models
+
+/src/controllers
+  where all the endpoints will be defined
+
+  /src/controllers/AuthenticationControlllers.js
+  eg where everything with authentication would be held
+
+get real friendly with try catch
+
+
+npm install --save joi
+  framework used for validating the request stuff
+
+  /policies/authenticactionControllerPolicy.js
+  this is our middleware function
+  next goes on to next line
+
+  set up a schema that we like (joi built in stuff and regEx matching)
+
+  pass said schema to Joi.validate (should return an error and value)
+
+
+CLIENT
+
+Register.vue
+now we start try catching
+  start connecting the error
+
+  vue file seperated into 
+  template
+  v-html (v - is a vue specific env)
+  vue components attach to the script section
+    data
+    methods
+  style

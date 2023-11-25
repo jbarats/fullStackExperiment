@@ -1,0 +1,32 @@
+https://arielweinberger.medium.com/json-web-token-jwt-the-only-explanation-youll-ever-need-cf53f0822f50
+
+communication authorization
+
+
+a standard
+header
+  -Algorithm (alg) to sign the token
+  -Type always JWT
+
+payload
+  - issuer (iss) e.g. the authentication service
+  - subject (sub) entity identified by said token
+  - audience (aud) target audience for the JWT, you should consider rejecting those without an audience
+  - expiry (exp) unix temstamp after which the token is not to be accepted
+  - issuedAt (iat) the date the token was issued
+
+signature
+  - encoded header, encoded payload, secret, and crypto alg
+
+e.g.
+signature = Crypto(secret, base64(header), base64(payload))
+creates
+jbcOUQ2bbiYlfVtprEkaT_S6Y6yQnBDOAKDHIHjvl7g
+
+tokens are decodable by anyone - don't put sensitive info
+
+essentially the security happens by recreating the signature and comparing it (hashing)
+
+e.g. if somebody edits their header to say admin, they will send the wrong signature
+  (this is why the secret key is important
+)

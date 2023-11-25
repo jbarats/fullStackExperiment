@@ -1,0 +1,4 @@
+to allow Vue to use Vuetify, it's inlcuded in main.js 
+
+v-layout
+v-flex

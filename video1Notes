@@ -1,0 +1,94 @@
+vue - frontend
+express - backend (built on nodejs environment) very barebones
+
+
+git status - shows everything edited
+git add --all
+git commit -m
+git push
+
+
+use npm create vue@latest to make a vue project
+    (call it client) - we like webpack
+
+eslint - keeps code consistent
+karma + mocha - testing
+
+in package.json, all the needed dependencies live, by running npm install all dependencies are downloaded locally
+    once downloaded should show up in node modules
+
+  in scripts all useful scripts live
+      npm run dev - starts front end server
+
+
+good practice has server living in a seperate folder (maybe even a seperate git)
+ 
+axios - library for http requests
+
+client/src/services/main.js
+  used to make connector for the back end
+
+axios.create({baseURL: points to backend})
+
+client/src/services/AuthenticationService.js
+  create functions for REST pinging
+
+client/src/router/index.js
+  controls paths to components
+
+client/src/components/*.vue
+  has our standard html and css
+  
+Vue JS allows us to bind stuff
+two way binding
+v-model = "email" - binds that component to the vue variable
+
+can use watch to monitor change (allows for interaction between vue and the page)
+
+mounted - whenever vue component is mounted onto page
+
+------------SERVER STUFF--------
+
+npm init -f
+    creates a package.json file
+npm install --save nodemon eslint
+
+scripts to add
+  "start": "./node_modules/nodemon/bin/nodemon.js src/app.js --exc 'npm run lint && node'"
+  "lint": "./node_modules/.bin/eslint **/*.js"
+
+
+server/src/app.js
+  this will be a basic web application
+
+npm install --save express body-parser cors morgan
+  the hyphen save makes sure that its added to the package file
+
+in js requiring grabs the index (main) file
+
+
+express() very basic server
+morgan is a log generator
+bodyParser allows for parsing json
+cors ??? a security risk
+
+GET
+POST
+PUT
+PATCH
+DELETE
+
+e.g. 
+.get('/status' (req, res) => {
+    res.send({
+      message: 'hellow world!'
+    })
+})
+
+postman is invaluable for testing REST commands
+
+
+.gitignore
+add the files not to be uploaded
+  client/node_modules/
+  server/node_modules/

@@ -1,0 +1,5 @@
+Client
+npm run dev -> /index.html -> /src/main.js -> /src/app.vue
+
+Server
+npm run start -> /app.js

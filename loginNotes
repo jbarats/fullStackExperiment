@@ -1,0 +1,34 @@
+login method
+check to see if the passed data matches up
+
+jwt is used to create secure tokens
+
+bcrypt-nodejs, used for encripting and hashing passwords 
+
+bluebird to use promise structure 
+
+Pinia  (client side )
+  state management solution
+  components need access to the same data
+  global store, storing states in single place
+  (not meant to be a replacement for props and events)
+  
+  5-10 components (likely no need for store)
+  start
+
+import { defineStore } from 'pinia'
+
+//unique name as first argument
+export const useAlertStore = defineStore('alerts', {
+})
+
+Pinia:
+globale state in stores
+components can monitor status of state
+actions mutate state of store from within components
+
+every different global state, you just make a new pinia store (more modular than vuex)
+
+built in typescript support
+
+

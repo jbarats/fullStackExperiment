@@ -16,7 +16,7 @@ require('./routes')(app)
 
 
 console.log(typeof sequelize)
-sequelize.sync({force: false}) //connects the databse
+sequelize.sync({force: true}) //connects the databse
   .then(() => {
     app.listen(process.env.PORT || 8081)
     console.log(`Server started on ${config.port}`)
