@@ -53,6 +53,8 @@ export default {
     <v-text-field
       label="password"
       v-model="password"
+      type ="password"
+      autocomplete="new-password"
     ></v-text-field>
       <br />
       <div class="error" v-html="error" />

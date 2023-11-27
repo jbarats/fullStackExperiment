@@ -1,6 +1,14 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import { useTheOneStore } from '../stores/store'
+
 export default {
+
+  setup() {
+    const theOneStore = useTheOneStore()
+    return { theOneStore }
+  },
+
   data () {
     return {
       email: 'abc',
@@ -25,6 +33,7 @@ export default {
         email: this.email,
         password: this.password
         })
+        this.theOneStore.toggleLoggedIn()
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -53,6 +62,7 @@ export default {
     <v-text-field
       label="password"
       v-model="password"
+      type ="password"
     ></v-text-field>
       <br />
       <div class="error" v-html="error" />
